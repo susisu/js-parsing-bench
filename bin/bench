@@ -1,0 +1,43 @@
+#!/usr/bin/env node
+
+"use strict";
+
+const fs = require("fs");
+const path = require("path");
+
+const parsers = {
+  baseline: { parse: () => {} },
+  parsimmon: require("../src/parsimmon"),
+  loquat: require("../src/loquat"),
+  pegjs: require("../src/pegjs"),
+};
+
+if (process.argv.length < 5) {
+  console.log(`Usage: bench <jsonfile> <loops> <name>`);
+  process.exit(1);
+}
+const jsonfile = process.argv[2];
+const loops = parseInt(process.argv[3], 10);
+const name = process.argv[4];
+
+if (!parsers[name]) {
+  console.log(`Unknown parser: ${name}`);
+  process.exit(1);
+}
+const parse = parsers[name].parse;
+
+const data = fs.readFileSync(jsonfile, "utf-8");
+
+console.log(`Node.js version: ${process.versions.node}`)
+console.log(`JSON file: ${jsonfile}`);
+console.log(`Loops: ${loops.toString()}`);
+console.time(name);
+for (let i = 0; i < loops; i++) {
+  try {
+    parse(data);
+  }
+  catch (err) {
+    String(err);
+  }
+}
+console.timeEnd(name);
