@@ -1,35 +1,36 @@
+// original: https://github.com/GregRos/parjs/blob/master/src/examples/json.ts
+
 "use strict";
 
 const { Parjs } = require("parjs");
 
-const escapes = {
-    "\"": `"`,
-    "\\": "\\",
-    "/": "/",
-    "f": "\f",
-    "n": "\n",
-    "r": "\r",
-    "t": "\t"
-};
+const interpretEscapes = str => {
+  const escapes = {
+    b: "\b",
+    f: "\f",
+    n: "\n",
+    r: "\r",
+    t: "\t"
+  };
+  return str.replace(/\\(u[0-9a-fA-F]{4}|[^u])/, (_, escape) => {
+    const type = escape.charAt(0);
+    const hex = escape.slice(1);
+    if (type === "u") {
+      return String.fromCharCode(parseInt(hex, 16));
+    }
+    if (escapes.hasOwnProperty(type)) {
+      return escapes[type];
+    }
+    return type;
+  });
+}
 
 let _pJsonValue = null;
 const pJsonValue = Parjs.late(() => _pJsonValue);
-const pEscapeChar = Parjs.anyCharOf(Object.getOwnPropertyNames(escapes).join()).map(char => {
-    const result = escapes[char];
-    return result;
-});
-
-// A unicode escape sequence is "u" followed by exactly 4 hex digits
-const pEscapeUnicode = Parjs.string("u").then(Parjs.hex.exactly(4).str.map(hexStr => parseInt(hexStr, 16)));
-
-// Any escape sequence begins with a \
-const pEscapeAny = Parjs.string("\\").then(pEscapeChar.or(pEscapeUnicode));
-
-// Here we process regular characters vs escape sequences
-const pCharOrEscape = pEscapeAny.or(Parjs.noCharOf('"'));
 
 // Repeat the char/escape to get a sequence, and then put between quotes to get a string
-const pStr = pCharOrEscape.many().str.between('"');
+const pStr = Parjs.regexp(/"((?:\\.|.)*?)"/)
+  .map(res => interpretEscapes(res[1]));
 
 // This is also a JSON string value
 const pJsonString = pStr;
