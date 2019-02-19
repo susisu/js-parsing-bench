@@ -1,6 +1,6 @@
 "use strict";
 
-const { Parjs, ReplyKind } = require("parjs");
+const { Parjs } = require("parjs");
 
 const escapes = {
     "\"": `"`,
