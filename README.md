@@ -8,6 +8,7 @@ List of parsers:
 * [loquat](https://github.com/susisu/loquat2)
 * [parsimmon](https://github.com/jneen/parsimmon)
 * [pegjs](https://github.com/pegjs/pegjs)
+* [parjs](https://github.com/GregRos/parjs)
 
 `gists.json` is a snapshot of https://api.github.com/gists
 
