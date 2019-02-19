@@ -64,10 +64,10 @@ _pJsonValue = Parjs.any(pJsonString, pNumber, pBool, pNull, pArray, pObject).bet
 
 module.exports.parse = src => {
   const res = pJsonValue.parse(src);
-  if (res.kind === ReplyKind.OK) {
+  if (res.kind === "OK") {
     return res.value;
   }
   else {
-    throw Parjs.visualizer(res.trace);
+    throw new Error(Parjs.visualizer(res.trace));
   }
 }
