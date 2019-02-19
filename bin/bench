@@ -10,6 +10,7 @@ const parsers = {
   parsimmon: require("../src/parsimmon"),
   loquat: require("../src/loquat"),
   pegjs: require("../src/pegjs"),
+  parjs: require("../src/parjs"),
 };
 
 if (process.argv.length < 5) {
