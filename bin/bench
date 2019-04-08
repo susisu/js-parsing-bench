@@ -9,6 +9,7 @@ const parsers = {
   baseline: { parse: () => {} },
   parsimmon: require("../src/parsimmon"),
   loquat: require("../src/loquat"),
+  loquat3: require("../src/loquat3"),
   pegjs: require("../src/pegjs"),
   parjs: require("../src/parjs"),
 };
