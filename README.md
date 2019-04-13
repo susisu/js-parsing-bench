@@ -30,29 +30,29 @@ Memory:                16 GB
 Node.js version: 10.15.3
 JSON file: ./gists.json
 Loops: 10000
-loquat: 31456.520ms
+loquat: 30903.640ms
 
 λ bin/bench ./gists.json 10000 loquat3
 Node.js version: 10.15.3
 JSON file: ./gists.json
 Loops: 10000
-loquat3: 31591.146ms
+loquat3: 31558.954ms
 
 λ bin/bench ./gists.json 10000 parsimmon
 Node.js version: 10.15.3
 JSON file: ./gists.json
 Loops: 10000
-parsimmon: 36208.863ms
+parsimmon: 50032.601ms
 
 λ bin/bench ./gists.json 10000 pegjs
 Node.js version: 10.15.3
 JSON file: ./gists.json
 Loops: 10000
-pegjs: 54743.743ms
+pegjs: 53725.749ms
 
 λ bin/bench ./gists.json 10000 parjs
 Node.js version: 10.15.3
 JSON file: ./gists.json
 Loops: 10000
-parjs: 69146.385ms
+parjs: 68836.416ms
 ```
