@@ -11,6 +11,7 @@
   "license": "MIT",
   "dependencies": {
     "@loquat/simple": "^3.0.0",
+    "chevrotain": "^4.3.3",
     "loquat": "^2.0.0",
     "parjs": "^0.10.4",
     "parsimmon": "^1.12.0",

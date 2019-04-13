@@ -12,6 +12,7 @@ const parsers = {
   loquat3: require("../src/loquat3"),
   pegjs: require("../src/pegjs"),
   parjs: require("../src/parjs"),
+  chevrotain: require("../src/chevrotain"),
 };
 
 if (process.argv.length < 5) {
