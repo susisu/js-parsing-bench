@@ -1,4 +1,6 @@
-// original: https://github.com/SAP/chevrotain/blob/master/examples/grammars/json/json.js
+// original:
+// - https://github.com/SAP/chevrotain/blob/master/examples/grammars/json/json.js
+// - http://sap.github.io/chevrotain/playground/?example=JSON%20grammar%20and%20embedded%20semantics
 const { Parser, Lexer, createToken } = require("chevrotain")
 
 // ----------------- lexer -----------------
@@ -50,60 +52,82 @@ class JsonParser extends Parser {
     // invoking RULE(...)
     // see: https://github.com/jeffmo/es-class-fields-and-static-properties
     constructor(config) {
-        super(allTokens, config)
+        super(allTokens, {recoveryEnabled: true, outputCst: false})
 
         // not mandatory, using $ (or any other sign) to reduce verbosity (this. this. this. this. .......)
         const $ = this
 
         // the parsing methods
-        $.RULE("json", () => {
-            $.OR([
-                { ALT: () => $.SUBRULE($.object) },
-                { ALT: () => $.SUBRULE($.array) }
-            ])
-        })
+        $.RULE("json", () => $.OR([
+          {ALT: () => $.SUBRULE($.object)},
+          {ALT: () => $.SUBRULE($.array)}
+        ]));
 
         $.RULE("object", () => {
-            $.CONSUME(LCurly)
-            $.OPTION(() => {
-                $.SUBRULE($.objectItem)
-                $.MANY(() => {
-                    $.CONSUME(Comma)
-                    $.SUBRULE2($.objectItem)
-                })
-            })
-            $.CONSUME(RCurly)
-        })
+          const obj = {};
+
+          $.CONSUME(LCurly);
+          $.MANY_SEP({
+            SEP: Comma, DEF: () => {
+              Object.assign(obj, $.SUBRULE($.objectItem));
+            }
+          });
+          $.CONSUME(RCurly);
+
+          return obj;
+        });
+
 
         $.RULE("objectItem", () => {
-            $.CONSUME(StringLiteral)
-            $.CONSUME(Colon)
-            $.SUBRULE($.value)
-        })
+          let lit, key, value;
+          const obj = {};
+
+          lit = $.CONSUME(StringLiteral)
+          $.CONSUME(Colon);
+          value = $.SUBRULE($.value);
+
+          // an empty json key is not valid, use "BAD_KEY" instead
+          key = lit.isInsertedInRecovery ?
+            "BAD_KEY" : lit.image.substr(1, lit.image.length - 2);
+          obj[key] = value;
+          return obj;
+        });
+
 
         $.RULE("array", () => {
-            $.CONSUME(LSquare)
-            $.OPTION(() => {
-                $.SUBRULE($.value)
-                $.MANY(() => {
-                    $.CONSUME(Comma)
-                    $.SUBRULE2($.value)
-                })
-            })
-            $.CONSUME(RSquare)
-        })
+          const arr = [];
+          $.CONSUME(LSquare);
+          $.MANY_SEP({
+            SEP: Comma, DEF: () => {
+              arr.push($.SUBRULE($.value));
+            }
+          });
+          $.CONSUME(RSquare);
 
-        $.RULE("value", () => {
-            $.OR([
-                { ALT: () => $.CONSUME(StringLiteral) },
-                { ALT: () => $.CONSUME(NumberLiteral) },
-                { ALT: () => $.SUBRULE($.object) },
-                { ALT: () => $.SUBRULE($.array) },
-                { ALT: () => $.CONSUME(True) },
-                { ALT: () => $.CONSUME(False) },
-                { ALT: () => $.CONSUME(Null) }
-            ])
-        })
+          return arr;
+        });
+        $.RULE("value", () => $.OR([
+          { ALT: () => {
+            const stringLiteral = $.CONSUME(StringLiteral).image;
+            // chop of the quotation marks
+            return stringLiteral.substr(1, stringLiteral.length  - 2);
+          }},
+          { ALT: () => Number($.CONSUME(NumberLiteral).image)},
+          { ALT: () => $.SUBRULE($.object)},
+          { ALT: () => $.SUBRULE($.array)},
+          { ALT: () => {
+            $.CONSUME(True);
+            return true;
+          }},
+          { ALT: () => {
+            $.CONSUME(False);
+            return false;
+          }},
+          { ALT: () => {
+            $.CONSUME(Null);
+            return null;
+          }}
+        ]));
 
         // very important to call this after all the rules have been defined.
         // otherwise the parser may not work correctly as it will lack information
@@ -127,12 +151,8 @@ module.exports = {
         // setting a new input will RESET the parser instance's state.
         parser.input = lexResult.tokens
         // any top level rule may be used as an entry point
-        const cst = parser.json()
+        const json = parser.json()
 
-        return {
-            cst: cst,
-            lexErrors: lexResult.errors,
-            parseErrors: parser.errors
-        }
+        return json;
     }
 }
