@@ -5,7 +5,7 @@ bin/bench ./gists.json 1000 <parser>
 
 List of parsers:
 
-* [loquat](https://github.com/susisu/loquat2)@2.0.0, @3.0.0
+* [loquat](https://github.com/susisu/loquat)@2.0.0, @3.0.0
 * [parsimmon](https://github.com/jneen/parsimmon)@1.12.0
 * [pegjs](https://github.com/pegjs/pegjs)@0.10.0
 * [parjs](https://github.com/GregRos/parjs)@0.10.4
