@@ -10,7 +10,7 @@
   "author": "Susisu <susisu2413@yahoo.co.jp> (https://github.com/susisu)",
   "license": "MIT",
   "dependencies": {
-    "@loquat/simple": "^3.0.0-alpha.2",
+    "@loquat/simple": "^3.0.0",
     "loquat": "^2.0.0",
     "parjs": "^0.10.4",
     "parsimmon": "^1.12.0",
