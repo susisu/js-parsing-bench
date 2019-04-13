@@ -8,7 +8,7 @@ const path = require("path");
 const parsers = {
   baseline: { parse: () => {} },
   parsimmon: require("../src/parsimmon"),
-  loquat2: require("../src/loquat"),
+  loquat2: require("../src/loquat2"),
   loquat3: require("../src/loquat3"),
   pegjs: require("../src/pegjs"),
   parjs: require("../src/parjs"),
