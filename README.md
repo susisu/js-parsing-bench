@@ -9,7 +9,7 @@ List of parsers:
 * [parsimmon](https://github.com/jneen/parsimmon)@1.12.0
 * [pegjs](https://github.com/pegjs/pegjs)@0.10.0
 * [parjs](https://github.com/GregRos/parjs)@0.10.4
-- [chevrotain](https://github.com/SAP/chevrotain)@4.3.3
+* [chevrotain](https://github.com/SAP/chevrotain)@4.3.3
 
 `gists.json` is a snapshot of https://api.github.com/gists
 
