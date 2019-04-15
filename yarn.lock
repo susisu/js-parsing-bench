@@ -2,72 +2,72 @@
 # yarn lockfile v1
 
 
-"@loquat/char@^3.0.0":
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/@loquat/char/-/char-3.0.0.tgz#23c6376e09c9fbe64d566bf9d98e5ee23bb61bfd"
-  integrity sha512-Kv1p8Ueub1j9UhvJg+A0AjQVgY1Moo1/0WMZ9n6JHoTUpAdv45y+sG/r75R9dVVYqNlUz8rs4nnGRcH1355CsA==
+"@loquat/char@^3.1.0":
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/@loquat/char/-/char-3.1.0.tgz#e2bfb9470d2f2f6033abc1042409f3f4596d4582"
+  integrity sha512-0nJMUZH2X3CI15Y1Weay12BZyf3AwCCG2UIIBoGIJTETkIBxavAfqDk535rXd51mbRk/8U25CRXCwNRgoNDklw==
   dependencies:
-    "@loquat/prim" "^3.0.0"
+    "@loquat/prim" "^3.1.0"
 
-"@loquat/combinators@^3.0.0":
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/@loquat/combinators/-/combinators-3.0.0.tgz#8e4ead771057a42f539b6f4b939d0649c180db24"
-  integrity sha512-5PqVh5pB507J+3EZTW6/fG7WNuSAxynE5N8Zim6EsmPJFdu5C4DIdxbEh6uNLOJm6a1h/ZgbpuwzUcQ7jmYSag==
+"@loquat/combinators@^3.1.0":
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/@loquat/combinators/-/combinators-3.1.0.tgz#0d55e7efdbf9ea1395fa7a67fe6117d68dfffa2f"
+  integrity sha512-DEYWbAhWcWSiseBmwpm8bV4J2jP4Ba+uXIfj6qszwftihtHZpDBiJX0r+CCwKsUfM0Q9UIPdI662xLq3uIJisg==
   dependencies:
-    "@loquat/prim" "^3.0.0"
+    "@loquat/prim" "^3.1.0"
 
-"@loquat/core@^3.0.0":
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/@loquat/core/-/core-3.0.0.tgz#b24bf436653d8fec9064db951d01a4753069a0e2"
-  integrity sha512-XUN3e/RPraq/vTTZNaqH8QfZ/qT7XegeatuZBr9GUBTsZeNdgoSkVaAf5PFvu/ZC+HelVJpQ91oFEYpt6C86eQ==
+"@loquat/core@^3.1.0":
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/@loquat/core/-/core-3.1.0.tgz#4e2a60f807550dc0a44feb9ecdf6f944cdfef5e1"
+  integrity sha512-hVMcte0sb3QLOkJblKthqUSx2DDoFUM/lD9IQEf4LYK4c7VxEEdzfFBVeEchA2Ht3T5giJPHBB5nVE5lpw3ftg==
 
-"@loquat/expr@^3.0.0":
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/@loquat/expr/-/expr-3.0.0.tgz#e581fdc38343920a0cba1712d6f9f789773654f2"
-  integrity sha512-qo9AYZxPJRtyt0KCTdabjr2k4bZyxYp7pg9kMv8sAbH27dGIKBYIy5TDIs2VBCm6hfMICrcbTIzxhA8ICrgN1g==
+"@loquat/expr@^3.1.0":
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/@loquat/expr/-/expr-3.1.0.tgz#9723a4aa4e70fe0d23dc02559ce19c1d3b031b46"
+  integrity sha512-N7jb1mSleH8qzSXjO3C4WL/sAL1f4IcwWC1iLyLSJBRuklznIYEBCP63ZO1Zjpd5EsD1BTpzUDeVzJ1uRVDG8A==
   dependencies:
-    "@loquat/combinators" "^3.0.0"
-    "@loquat/prim" "^3.0.0"
+    "@loquat/combinators" "^3.1.0"
+    "@loquat/prim" "^3.1.0"
 
-"@loquat/monad@^3.0.0":
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/@loquat/monad/-/monad-3.0.0.tgz#17e5ec718b32184cf955d87cf64c9a6f8af47dbd"
-  integrity sha512-Yxzc2FD4NJWA7idG54O0timnUYV8TPWfGgF1YaggHSMVg/8imxphUhZXcKiaTPD7Srk677GhwJZpNvExtoyQdQ==
+"@loquat/monad@^3.1.0":
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/@loquat/monad/-/monad-3.1.0.tgz#620dacb46e86add0e8bff17efc385d34fecdc87a"
+  integrity sha512-DRy+NVp7R2v/GhZang0OncQ+TnAoe9IDFxywcNKYg5Axa/t2nh1uaRibw/N8k4+HKP23SQu/KnpPevGMyyCnLw==
   dependencies:
-    "@loquat/prim" "^3.0.0"
+    "@loquat/prim" "^3.1.0"
 
-"@loquat/prim@^3.0.0":
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/@loquat/prim/-/prim-3.0.0.tgz#3491bdedd2e1858af99b4087bd8ccde5971fb258"
-  integrity sha512-UhfrjaC80cnp98ZfldYHp8sljca82sGQx9ndro0uotpNGrlpT0F0tXWBy0sSF+MpVu10xykVL535HGiiCj2KkQ==
+"@loquat/prim@^3.1.0":
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/@loquat/prim/-/prim-3.1.0.tgz#3c1f8d54e8dbe2f8c5fdbd9a9a77eac3cb1a7817"
+  integrity sha512-SsR8PFDSKoO86WLLsNDhAwRYRJIFAkge0CxyXdXOA1+JWjqQZPt3IUbIFqFJvXTapTOFQPGXBSCxHUENsJOJDw==
 
-"@loquat/qo@^3.0.0":
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/@loquat/qo/-/qo-3.0.0.tgz#799b504ff42d8809009c188009040ddd302da913"
-  integrity sha512-AloDAJWGqi85Wg17Vq3lE9RXpm+cOT8Be62bsIjGc3ZdJlOSMv0HU4M8DPlkozCkMHNQNCgkAP0PRT0FzRverg==
+"@loquat/qo@^3.1.0":
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/@loquat/qo/-/qo-3.1.0.tgz#c4c422ae8701c8ed72ba3997062917c0ef9ed805"
+  integrity sha512-rh585/0jCvT9CL2TzdIBHH62NW9vuQm/uwsDzlWd/3QODcYL3DcylwC9yAGdq3k5LsuntlP+gtyRoRPy3+UXHA==
 
-"@loquat/simple@^3.0.0":
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/@loquat/simple/-/simple-3.0.0.tgz#e3b569fe69e851e3e09a7d37ed7dd3622c27d956"
-  integrity sha512-3Rd/vIwzHpc2tFoOcMfZal916vZNssdXIPwDdGqs11/ZDQ+09rRjdvRpC11HkGnrBhjRbzvcFAUppUd7Xqoeeg==
+"@loquat/simple@^3.1.0":
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/@loquat/simple/-/simple-3.1.0.tgz#0afa49f945d98f62f8bf16cce344af9366d32612"
+  integrity sha512-UAx2hfPlKOXPQCE7s6Quwc0jjNFSTlcmwH4n3xlcszaWgPNFVQGX563Kn3IpRsTAgAAj9yr18W7i5OzwCVuKTA==
   dependencies:
-    "@loquat/char" "^3.0.0"
-    "@loquat/combinators" "^3.0.0"
-    "@loquat/core" "^3.0.0"
-    "@loquat/expr" "^3.0.0"
-    "@loquat/monad" "^3.0.0"
-    "@loquat/prim" "^3.0.0"
-    "@loquat/qo" "^3.0.0"
-    "@loquat/token" "^3.0.0"
+    "@loquat/char" "^3.1.0"
+    "@loquat/combinators" "^3.1.0"
+    "@loquat/core" "^3.1.0"
+    "@loquat/expr" "^3.1.0"
+    "@loquat/monad" "^3.1.0"
+    "@loquat/prim" "^3.1.0"
+    "@loquat/qo" "^3.1.0"
+    "@loquat/token" "^3.1.0"
 
-"@loquat/token@^3.0.0":
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/@loquat/token/-/token-3.0.0.tgz#f13b1ae4e7d6c1684eb346e338704401c27de647"
-  integrity sha512-2ROrUMiEmBxbmslwVUQ8+6PFgWlv+qny6UXuU9r5sZ0ID+6s1y2R4ncB4RJj9jlPhzPh+VHDHP30HKKF4uPTzw==
+"@loquat/token@^3.1.0":
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/@loquat/token/-/token-3.1.0.tgz#3fa799f2db9c2d9ed85b3406a4841350900b165e"
+  integrity sha512-ii5m8ce4ZDK8ZhNZ6A7psGlH+TSm/40jZnL/cpDUv6b2h0HR7C+3IZOjwx/rWw20JbbIdJ5qYl3lgPPDXSaAnQ==
   dependencies:
-    "@loquat/char" "^3.0.0"
-    "@loquat/combinators" "^3.0.0"
-    "@loquat/prim" "^3.0.0"
+    "@loquat/char" "^3.1.0"
+    "@loquat/combinators" "^3.1.0"
+    "@loquat/prim" "^3.1.0"
 
 char-info@^0.2.0:
   version "0.2.0"
